@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "_posts/2025-12-04-gestion-usuarios-linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "2025-12-04-gestion-usuarios-linux"
             }
           }
         ],
@@ -183,8 +183,11 @@
   },
   "active": "1ebf7d23a68676fa",
   "lastOpenFiles": [
-    "README.md",
+    "Templates/Modelo simple.md",
+    "_posts/2025-12-04-gestion-usuarios-linux.md",
+    "Templates",
     "index.md",
+    "README.md",
     "2025-12-05-hola-mundo.hacking.md.md",
     "Bienvenido.md",
     "index.md.md",
