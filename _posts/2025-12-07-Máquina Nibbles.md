@@ -38,8 +38,8 @@ Bash
 sudo nmap -p22,80 -sCV -sS -Pn 10.10.14.124 -oA ./ports
 ```
 
-- `-sCV`: El parámetro “C” sirve para escanear utilizando los scripts mas comunes de NMAP y la “V” para escanear las versiones de esos servicios.
-    ![Imagen](/assets/nibbles/Imagen2.png)
+- `-sCV`: El parámetro “C” sirve para escanear utilizando los scripts mas comunes de NMAP y la “V” para escanear las versiones de esos servicios. 
+- ![Imagen](/assets/nibbles/Imagen2.png)
 
 Bueno esta es la información que nos da, el servidor http es un apache de versión 2.4.41 y tenemos un titulo que nos puede dar una pista….
 
@@ -60,26 +60,26 @@ Tenemos distintas rutas, ahora tenemos que ir investigando una a una a ver si sa
 Despues de navegar por las distintas rutas descubrimos algo muy interesante, dentro de `/data` existe una carpeta `users` (entre otras), y dentro de `users` un archivo `admin.xml`.
 
 ![Imagen](/assets/nibbles/imagen4.png)
-![Imagen](imagen5.png)
+![Imagen](/assets/nibbles/imagen5.png)
 
 
 Ya tenemos al usuario **admin** y… `<PWD>` ese conjunto de caracteres ¿no parece ser algo cifrado?, podemos intentar crackearla con herramientas como jhon the riper o hashcat pero vamos a lo mas rápido, vamos a aprovecharnos de páginas web que sin saber que tipo de hash es (md5, sh1 ec…) en este caso utilizaremos la herramienta web “hashes.com”.
-![Imagen](imagen6.png)
+![Imagen](/assets/nibbles/imagen6.png)
 
 Bingo! Ese hash está en formato SH1 y corresponde con la palabra **admin** (no se complicó mucho ese administrador xD).
 
-![Imagen](imagen7.png)
+![Imagen](/assets/nibbles/imagen7.png)
 
-![Imagen](imagen8.png)
+![Imagen](/assets/nibbles/imagen8.png)
 Ya tendríamos el usuario y la contraseña `admin:admin`.
 
 En este punto tenemos que preguntarnos, ¿Qué es eso de GetSimple? Ya nos salió en nuestra enumeración de Nmap pero es hora de “googlear”.
 
-![Imagen](imagen9.png)
+![Imagen](/assets/nibbles/imagen9.png)
 
 En nuestro caso la versión de GetSimple es la 3.3.15, esto se ve sumergiéndonos en los códigos html de las páginas, o incluso en la propia interfaz gráfica de la página, por ejemplo en `http://IP/admin`.
 
-![Imagen](imagen10.png)
+![Imagen](/assets/nibbles/imagen10.png)
 
 Parece que tiene una vulnerabilidad consistente en la carga de archivos php maliciosos, por lo que como ya podemos entrar al panel de control como admins, vamos a buscar alguna sección donde podamos subir un archivo php y ver si nos deja insertar comandos.
 
@@ -91,19 +91,19 @@ PHP
 <?php phpinfo(); ?>
 ```
 
-![Imagen](imagen11.png)
+![Imagen](/assets/nibbles/imagen11.png)
 
-![Imagen](imagen12.png)
+![Imagen](/assets/nibbles/imagen12.png)
 
 Guardamos cambios y recargamos la página principal y BINGO! Comprobamos que la web es vulnerable.
 
-![Imagen](imagen13.png)
+![Imagen](/assets/nibbles/imagen13.png)
 
 Podemos probar otro código como por ejemplo `whoami` para ver quienes somos, volvemos al Theme editor y ponemos esta vez.
 
-![Imagen](imagen14.png)
+![Imagen](/assets/nibbles/imagen14.png)
 
-![Imagen](imagen15.png)
+![Imagen](/assets/nibbles/imagen15.png)
 
 Ahí lo tenemos, somos `www-data`. Vamos al turrón, vamos a crear una reverse Shell aprovechándonos de esta vulnerabilidad.
 
@@ -132,11 +132,11 @@ PHP
 
 Y en el momento de cargar la página en nuestro listener deberíamos de tener ya nuestra reverse Shell operativa.
 
-![Imagen](imagen19.png)
+![Imagen](/assets/nibbles/imagen19.png)
 
-![Imagen](imagen20.png)
+![Imagen](/assets/nibbles/imagen20.png)
 
-![Imagen](imagen21.png)
+![Imagen](/assets/nibbles/imagen21.png)
 
 En este momento vamos a hacer el tratamiento de la TTY, ¿para que? Porque cuando obtenemos una reverse Shell es tan básica que es muy poco operativa, por ejemplo, no nos sirven las flechas del teclado, el control+C nos sacaría de la Shell y lo que queremos es tener una Shell interactiva y funcional.
 
@@ -163,13 +163,13 @@ Ya tenemos una Shell interactiva, adicionalmente podemos irnos a un terminal nue
 
 Y lo que nos de lo ponemos en la reverse Shell con el comando `stty rows “filas” columns “columnas”` en mi caso 44 filas y 183 columnas.
 
-![Imagen](imagen22.png)
+![Imagen](/assets/nibbles/imagen22.png)
 
-![Imagen](imagen23.png)
+![Imagen](/assets/nibbles/imagen23.png)
 
 Como en las indicaciones de HTB nos dice que tenemos que ver la flag del archivo `user.txt`, sencillamente lo buscamos con el comando `find` y lo obtenemos.
 
-![Imagen](imagen24.png)
+![Imagen](/assets/nibbles/imagen24.png)
 
 Ahora solo nos falta escalar privilegios, buscar SUID mal configurados, tareas CRON etc… pero para esta máquina sencilla el primer paso que normalmente tendríamos que hacer que es ver la configuración de los sudoers ya vamos a tener la clave.
 
@@ -189,6 +189,6 @@ Bash
 sudo php -r 'system("/bin/bash");'
 ```
 
-![Imagen](imagen25.png)
+![Imagen](/assets/nibbles/imagen25.png)
 
 Ya lo tenemos, hemos escalado privilegios y ya somos el usuario root. Hemos finalizado con la explotación de la máquina Nibbles del módulo Getting started.
