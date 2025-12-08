@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2025-12-04-gestion-usuarios-linux.md",
+                "file": "_posts/2025-12-07-Máquina Nibbles.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-12-04-gestion-usuarios-linux"
+              "title": "2025-12-07-Máquina Nibbles"
             }
           }
         ],
@@ -161,13 +161,23 @@
               "icon": "lucide-list",
               "title": "Esquema de index.md"
             }
+          },
+          {
+            "id": "3dd70ed2a8907e97",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,13 +193,27 @@
   },
   "active": "1ebf7d23a68676fa",
   "lastOpenFiles": [
-    "Templates/Modelo simple.md",
     "_posts/2025-12-04-gestion-usuarios-linux.md",
-    "Templates",
+    "_posts/2025-12-07-Máquina Nibbles.md",
     "index.md",
-    "README.md",
-    "2025-12-05-hola-mundo.hacking.md.md",
     "Bienvenido.md",
+    "2025-12-05-hola-mundo.hacking.md.md",
+    "_posts/Assets/Nibbles/Pasted image 20251207214955.png",
+    "_posts/Assets/Nibbles",
+    "_posts/Assets",
+    "_posts/Assets/Nibbles/Pasted image 20251207215822.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215809.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215755.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215739.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215709.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215701.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215655.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215200.png",
+    "_posts/Assets/Nibbles/Pasted image 20251207215537.png",
+    "Templates/Modelo1Writeup.md",
+    "Templates/Modelo simple.md",
+    "Templates",
+    "README.md",
     "index.md.md",
     "_posts"
   ]
