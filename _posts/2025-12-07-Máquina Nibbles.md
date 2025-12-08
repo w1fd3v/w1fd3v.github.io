@@ -39,7 +39,8 @@ sudo nmap -p22,80 -sCV -sS -Pn 10.10.14.124 -oA ./ports
 ```
 
 - `-sCV`: El parámetro “C” sirve para escanear utilizando los scripts mas comunes de NMAP y la “V” para escanear las versiones de esos servicios. 
-- ![Imagen](/assets/nibbles/Imagen2.png)
+
+![Resultado del escaneo nmap fullports](/assets/nibbles/imagen2.png)
 
 Bueno esta es la información que nos da, el servidor http es un apache de versión 2.4.41 y tenemos un titulo que nos puede dar una pista….
 
