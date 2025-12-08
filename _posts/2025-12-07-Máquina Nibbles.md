@@ -24,7 +24,7 @@ sudo nmap -p- -sS --open -vvv -n -Pn 10.129.42.249 -oA ./fullports
     
 - `-oA` : El “Output” es decir el archivo con la información del escanea en todos los formatos (por si nos hace falta mas de un formato).
 
-![imagen](/assets/nibbles/imagen1.png)
+![imagen](/assets/nibbles/imagen1v2.png)
 
 Con este escaneo vemos que tenemos abierto el puerto 22 “ssh” y el 80 “http” y que por el ttl es una máquina Linux (ttl= 64 linux, ttl=128 Windows), por lo que es hora de centrarnos en realizar un escaneo mas profundo.
 
@@ -38,7 +38,7 @@ sudo nmap -p22,80 -sCV -sS -Pn 10.10.14.124 -oA ./ports
 
 - `-sCV`: El parámetro “C” sirve para escanear utilizando los scripts mas comunes de NMAP y la “V” para escanear las versiones de esos servicios. 
 
-![imagen](/assets/nibbles/imagen2.png)
+![imagen](/assets/nibbles/imagen2v2.png)
 
 Bueno esta es la información que nos da, el servidor http es un apache de versión 2.4.41 y tenemos un titulo que nos puede dar una pista….
 
